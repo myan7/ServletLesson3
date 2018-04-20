@@ -42,6 +42,8 @@ public class Valid extends HttpServlet {
 			session.setMaxInactiveInterval(20);
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
+			String sessionId = session.getId();
+			session.setAttribute("sessionid", sessionId);
 //			response.sendRedirect("welcome?username="+ username+"&&password="+password); 
 			response.sendRedirect("welcome");
 		}

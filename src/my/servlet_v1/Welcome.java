@@ -38,6 +38,7 @@ public class Welcome extends HttpServlet {
 		HttpSession session = request.getSession();
 		String name = (String) session.getAttribute("username");
 		String password = (String) session.getAttribute("password");
+		String sessionId = (String) session.getAttribute("sessionid");
 		
 		// this is for preventing illegal login by directly go to welcome page.
 		if(name == null || password == null)
@@ -50,6 +51,8 @@ public class Welcome extends HttpServlet {
 		pw.println("<html>");
 		pw.println("<p>Welcome! </p>");
 		pw.append(name).append(" "+password);
+		pw.println("<br>");
+		pw.append(sessionId);
 		pw.println("</html>");
 	}
 
