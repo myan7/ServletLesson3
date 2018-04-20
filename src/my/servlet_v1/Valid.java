@@ -39,9 +39,12 @@ public class Valid extends HttpServlet {
 			// if the user credential is valid, write it into session.
 			HttpSession session = request.getSession();
 			// the default session time is 30 mins, we can change it by calling this function (second)
-			session.setMaxInactiveInterval(20);
+//			session.setMaxInactiveInterval(20);
+			
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
+			
+			//this sessionId is assigned per browser which means, no matter how many tabs I opened in a sing browser, the session id will be the same
 			String sessionId = session.getId();
 			session.setAttribute("sessionid", sessionId);
 //			response.sendRedirect("welcome?username="+ username+"&&password="+password); 
