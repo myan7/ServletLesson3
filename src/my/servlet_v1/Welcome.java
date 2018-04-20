@@ -49,10 +49,14 @@ public class Welcome extends HttpServlet {
 		System.out.println(name);
 		PrintWriter pw = response.getWriter();
 		pw.println("<html>");
+		pw.println("<body>");
 		pw.println("<p>Welcome! </p>");
 		pw.append(name).append(" "+password);
 		pw.println("<br>");
 		pw.append(sessionId);
+		pw.println("<br>");
+		pw.println("<a href = logout >Logout</a>");
+		pw.println("</body>");
 		pw.println("</html>");
 	}
 

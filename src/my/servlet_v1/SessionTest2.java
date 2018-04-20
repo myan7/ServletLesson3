@@ -48,6 +48,7 @@ public class SessionTest2 extends HttpServlet {
 		// session makes it available for a user to share his data thru different pages
 		// consider session is a "table" where the user's data are stored in a key-value pair pattern
 		// different pages share the same session, which means they all can access the same "data table", session
+		// one browser instance only.
 		pw.println("<br>");
 		pw.println("<a href=index.jsp>home</>");
 	}

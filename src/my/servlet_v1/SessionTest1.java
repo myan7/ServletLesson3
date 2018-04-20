@@ -43,7 +43,7 @@ public class SessionTest1 extends HttpServlet {
 		session.setAttribute("title", "Java developer");
 
 		
-		// you will see session id is the same sessionTest1 and sessionTest2
+		// you will see session id is the same sessionTest1 and sessionTest2                // one browser instance only.
 		// session makes it available for a user to share his data thru different pages
 		// consider session is a "table" where the user's data are stored in a key-value pair pattern
 		// different pages share the same session, which means they all can access the same "data table", session
