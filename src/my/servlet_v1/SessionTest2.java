@@ -51,6 +51,9 @@ public class SessionTest2 extends HttpServlet {
 		// one browser instance only.
 		pw.println("<br>");
 		pw.println("<a href=index.jsp>home</>");
+		pw.println("<br>");
+		
+		pw.println("<a href=invalidate>Invalidate session</>");
 	}
 
 	/**

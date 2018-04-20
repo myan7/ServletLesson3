@@ -56,16 +56,16 @@ public class SessionTest1 extends HttpServlet {
 		pw.println("</html>");
 	
 		
-		for(int i =0;i<30;i++)
-		{
-			try {
-				Thread.sleep(1000);
-				System.out.println(30-i+ "s");
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		for(int i =0;i<30;i++)
+//		{
+//			try {
+//				Thread.sleep(1000);
+//				System.out.println(30-i+ "s");
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 	/**

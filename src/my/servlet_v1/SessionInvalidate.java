@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class SessionInvalid
  */
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+@WebServlet("/invalidate")
+public class SessionInvalidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public SessionInvalidate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +29,8 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		session.removeAttribute("username");
-		session.removeAttribute("password");
-		
-		// the reason why I redirect page to welcome,is to show that the username and password are removed already
-		// because I put some logic in Welcome servlet, if there is no such data, redirect to login
-		response.sendRedirect("welcome");
-
-		
+		session.invalidate();
+		response.sendRedirect("index.jsp");
 	}
 
 	/**

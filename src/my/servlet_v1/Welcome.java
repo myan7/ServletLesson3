@@ -36,22 +36,22 @@ public class Welcome extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession();
-		String name = (String) session.getAttribute("username");
+		String username = (String) session.getAttribute("username");
 		String password = (String) session.getAttribute("password");
 		String sessionId = (String) session.getAttribute("sessionid");
 		
 		// this is for preventing illegal login by directly go to welcome page.
-		if(name == null || password == null)
+		if(username == null || password == null)
 		{
 			response.sendRedirect("login");
 		}
 		
-		System.out.println(name);
+		System.out.println(username);// to monitor if name is still in session
 		PrintWriter pw = response.getWriter();
 		pw.println("<html>");
 		pw.println("<body>");
 		pw.println("<p>Welcome! </p>");
-		pw.append(name).append(" "+password);
+		pw.append(username).append(" "+password);
 		pw.println("<br>");
 		pw.append(sessionId);
 		pw.println("<br>");
