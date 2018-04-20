@@ -40,6 +40,9 @@ public class Valid extends HttpServlet {
 			HttpSession session = request.getSession();
 			// the default session time is 30 mins, we can change it by calling this function (second)
 			session.setMaxInactiveInterval(20);
+			String sessionId = session.getId();
+//			System.out.println(sessionId);
+			session.setAttribute("sessionid", sessionId);
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
 //			response.sendRedirect("welcome?username="+ username+"&&password="+password); 
