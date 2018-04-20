@@ -36,6 +36,11 @@ public class Login extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		pw.println("<html>");
 		pw.println("<body>");
+		// get error message
+		String info = (String)request.getParameter("info");
+		if(info !=null)
+			pw.println("<h1>Info: "+info+"</h1><br>");
+		
 		pw.println("<h1>login page</h1>");
 		pw.println("<form action = valid method = post>");
 		pw.println("Username:<input type='text' name='username'><br>");

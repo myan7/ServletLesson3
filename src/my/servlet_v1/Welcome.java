@@ -43,7 +43,7 @@ public class Welcome extends HttpServlet {
 		// this is for preventing illegal login by directly go to welcome page.
 		if(username == null || password == null)
 		{
-			response.sendRedirect("login");
+			response.sendRedirect("login?info=User name or password error.");
 		}
 		
 		System.out.println(username);// to monitor if name is still in session

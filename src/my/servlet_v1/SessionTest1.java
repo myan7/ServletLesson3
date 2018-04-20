@@ -33,7 +33,9 @@ public class SessionTest1 extends HttpServlet {
 		String sessionId = session.getId();
 		PrintWriter pw = response.getWriter();
 	
-		//set the session idle time to be 30s
+		//set the session idle time to be 30s, 
+		//if the value you gave it is negative, which means session will never time out
+		// if you set the value to be 0, the session will be invalidated immediately
 		session.setMaxInactiveInterval(30);
 		System.out.println(sessionId);
 		
