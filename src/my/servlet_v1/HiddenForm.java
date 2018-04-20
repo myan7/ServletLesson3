@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class HiddenForm
  */
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/hiddenform")
+public class HiddenForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public HiddenForm() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,32 +29,19 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		//make it Chinese friendly
-		response.setContentType("text/html; charset=gbk");
-		
-		String gender = "male";
 		PrintWriter pw = response.getWriter();
-		pw.println("<html>");
-		pw.println("<body>");
-		pw.println("<h1>login page</h1>");
-		pw.println("<form action = hiddenform method = post>");
-		pw.println("Username:<input type='text' name='username'><br>");
-		pw.println("Password:<input tpye='password' name='password'><br>");
-		pw.println("<input type = hidden name = gender value = "+gender+">");
-		pw.println("<input type = hidden name = age value = 31>");
-		pw.println("<input type  = 'submit' value = 'login'>");
-		pw.println("</form>");
-		pw.println("</body>");
-		pw.println("</html>");
+		String hiddenValue = request.getParameter("gender");
+		String hiddenValue2 = request.getParameter("age");
+		pw.println("gender is "+ hiddenValue);
+		pw.println("age is "+ hiddenValue2);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
