@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Welcome
@@ -29,13 +30,26 @@ public class Welcome extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("username");
-		String psw = request.getParameter("psw");
+//		instead of using request.getParameter from the Valid servlet, I want to retrieve the data from session
+//		String name = request.getParameter("username");
+//		String psw = request.getParameter("password");
+		
+		
+		HttpSession session = request.getSession();
+		String name = (String) session.getAttribute("username");
+		String password = (String) session.getAttribute("password");
+		
+		// this is for preventing illegal login by directly go to welcome page.
+		if(name == null || password == null)
+		{
+			response.sendRedirect("login");
+		}
+		
 		System.out.println(name);
 		PrintWriter pw = response.getWriter();
 		pw.println("<html>");
 		pw.println("<p>Welcome! </p>");
-		pw.append(name).append(" "+psw);
+		pw.append(name).append(" "+password);
 		pw.println("</html>");
 	}
 
