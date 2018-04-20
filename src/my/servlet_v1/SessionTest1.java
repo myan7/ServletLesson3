@@ -33,7 +33,39 @@ public class SessionTest1 extends HttpServlet {
 		String sessionId = session.getId();
 		PrintWriter pw = response.getWriter();
 	
+		//set the session idle time to be 30s
+		session.setMaxInactiveInterval(30);
+		System.out.println(sessionId);
+		
+		
+		// set an attribute into the session, 
+		session.setAttribute("name","Alex Yan");
+		session.setAttribute("title", "Java developer");
+
+		
+		// you will see session id is the same sessionTest1 and sessionTest2
+		// session makes it available for a user to share his data thru different pages
+		// consider session is a "table" where the user's data are stored in a key-value pair pattern
+		// different pages share the same session, which means they all can access the same "data table", session
+		pw.println("<html>");
+		pw.println("<body>");
 		pw.println("SessionTest 1 session id is "+ sessionId);
+		pw.println("<br>");
+		pw.println("<a href=index.jsp>home</a>");
+		pw.println("</body>");
+		pw.println("</html>");
+	
+		
+		for(int i =0;i<30;i++)
+		{
+			try {
+				Thread.sleep(1000);
+				System.out.println(30-i+ "s");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**

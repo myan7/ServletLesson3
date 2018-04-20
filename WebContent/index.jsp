@@ -12,5 +12,18 @@
 <form action="login">
 <input type = "submit" value = Login>
 </form>
+
+<br>
+
+<h1>SessionTest1</h1>
+<form action="sessiontest1" method = post>
+<input type = "submit" value = SessionTest1>
+</form>
+
+<br>
+<h1>SessionTest1</h1>
+<form action="sessiontest2" method = post>
+<input type = "submit" value = SessionTest2>
+</form>
 </body>
 </html>

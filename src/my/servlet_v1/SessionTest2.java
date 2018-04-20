@@ -32,13 +32,24 @@ public class SessionTest2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		String sessionId = session.getId();
 		PrintWriter pw = response.getWriter();
-	
+		System.out.println(sessionId);
+		String name = (String) session.getAttribute("name");
+		String title = (String) session.getAttribute("title");
+		
+		
+		pw.println("<br>");
+		pw.println("name : "+ name);
+		pw.println("<br>");
+		pw.println("title : "+ title);
+		pw.println("<br>");
+		
 		pw.println("SessionTest 2 session id is "+ sessionId);
 		// you will see session id is the same
 		// session makes it available for a user to share his data thru different pages
 		// consider session is a "table" where the user's data are stored in a key-value pair pattern
 		// different pages share the same session, which means they all can access the same "data table", session
-		
+		pw.println("<br>");
+		pw.println("<a href=index.jsp>home</>");
 	}
 
 	/**
